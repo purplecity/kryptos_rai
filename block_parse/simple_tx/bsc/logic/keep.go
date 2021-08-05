@@ -197,8 +197,9 @@ func getLatestBlock() int64 {
 	}
 	nodeLen := len(nodeURL)
 
-	client := pool.Pool.Get().(http.Client)
 	for {
+
+		client := pool.Pool.Get().(http.Client)
 
 		bodyMap := make(map[string]interface{})
 		bodyMap["jsonrpc"] = "2.0"

@@ -126,13 +126,13 @@ func (s *NotifyService) PoolNotify(ctx context.Context, in *message_notify.PN_Re
 			return r, nil
 		}
 		if increase {
-			err := mongo.SubMongoClient.Find(context.Background(), bson.M{"pool_address": strings.ToLower(in.PoolAddress), "master_chelf_addr": in.MasterChelfAddr, "tvl_inc": bson.M{"$lte": changeNum, "gt": 0}}).All(&subData)
+			err := mongo.SubMongoClient.Find(context.Background(), bson.M{"pool_address": strings.ToLower(in.PoolAddress), "master_chelf_addr": in.MasterChelfAddr, "tvl_inc": bson.M{"$lte": changeNum, "$gt": 0}}).All(&subData)
 			if err != nil {
 				logger.Error("PoolNotify::get sub info failed %+v", in.PoolAddress)
 				return r, nil
 			}
 		} else {
-			err := mongo.SubMongoClient.Find(context.Background(), bson.M{"pool_address": strings.ToLower(in.PoolAddress), "master_chelf_addr": in.MasterChelfAddr, "tvl_dec": bson.M{"$lte": changeNum, "gt": 0}}).All(&subData)
+			err := mongo.SubMongoClient.Find(context.Background(), bson.M{"pool_address": strings.ToLower(in.PoolAddress), "master_chelf_addr": in.MasterChelfAddr, "tvl_dec": bson.M{"$lte": changeNum, "$gt": 0}}).All(&subData)
 			if err != nil {
 				logger.Error("PoolNotify::get sub info failed %+v", in.PoolAddress)
 				return r, nil
