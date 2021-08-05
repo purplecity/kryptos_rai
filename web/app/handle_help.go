@@ -1015,7 +1015,8 @@ func addressAnalysis(req *AddressAnalysisReq) []byte {
 						item["ProjectName"] = v
 						item["RelativePoolAddress"] = k
 						item["RelativeMasterChelfAddr"] = y
-						relativeProjectLogoInfo := logoMap.Get(req.Chain + "_" + "项目" + "_" + v + "_" + "")
+
+						relativeProjectLogoInfo := logoMap.Get(req.Chain + "_" + "项目" + "_" + strings.ToLower(v) + "_" + "")
 
 						if relativeProjectLogoInfo != nil {
 							item["Logo"] = relativeProjectLogoInfo.(Logo).URL
@@ -1160,7 +1161,7 @@ func addressAnalysis(req *AddressAnalysisReq) []byte {
 							item["ProjectName"] = projectName
 							item["RelativePoolAddress"] = realtiveAddress
 							item["RelativeMasterChelfAddr"] = y
-							relativeProjectLogoInfo := logoMap.Get(req.Chain + "_" + "项目" + "_" + projectName + "_" + "")
+							relativeProjectLogoInfo := logoMap.Get(req.Chain + "_" + "项目" + "_" + strings.ToLower(projectName) + "_" + "")
 
 							if relativeProjectLogoInfo != nil {
 								item["Logo"] = relativeProjectLogoInfo.(Logo).URL

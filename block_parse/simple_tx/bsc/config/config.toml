@@ -13,7 +13,7 @@ BSCNodeURL = [
     "https://bsc-dataseed3.ninicoin.io/",
     "https://bsc-dataseed4.ninicoin.io/"
 ]
-StartBlock = 9684149 #当前已经插入过的最新区块 不用加1
+StartBlock = 9693849 #当前已经插入过的最新区块 不用加1
 CheckInterval = 4
 
 [Mongo]

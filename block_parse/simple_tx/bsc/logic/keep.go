@@ -13,8 +13,11 @@ import (
 	"net/http"
 	"sort"
 	"strconv"
+	"strings"
 	"sync"
 	"time"
+
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 func Perm(n int) []int {
@@ -74,12 +77,12 @@ func KeepBSCLatest() {
 		}
 
 		//为了测试 只保留100000个区块的数据
-		// u := bson.M{}
-		// u["block_number"] = bson.M{"$lt": latest - 100000}
-		// err := mongo.TxMongoClient.Remove(context.Background(), u)
-		// if err != nil {
-		// 	logger.Warn("Remove Block Tx::remove failed:%+v,data is :%+v", err, u)
-		// }
+		u := bson.M{}
+		u["block_number"] = bson.M{"$lt": latest - 100000}
+		err := mongo.TxMongoClient.Remove(context.Background(), u)
+		if err != nil {
+			logger.Warn("Remove Block Tx::remove failed:%+v,data is :%+v", err, u)
+		}
 
 		logger.Info("Block interval finished::curBlock:%+v,latest:%+v, total tx is :%+v", curBlock, latest, len(txList.TxList))
 		curBlock = latest
@@ -172,8 +175,8 @@ func parseBlock(blockHexBlock string, txList *concurrencyList) error {
 			txData := TxData{
 				BlockNumber: num10,
 				Hash:        e.Hash,
-				From:        e.From,
-				To:          e.To,
+				From:        strings.ToLower(e.From),
+				To:          strings.ToLower(e.To),
 				UpdataTime:  timeNow,
 			}
 			data = append(data, txData)

@@ -14,6 +14,7 @@ import (
 	"net/http"
 	"sort"
 	"strconv"
+	"strings"
 	"time"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -127,8 +128,8 @@ func GetInternalTx() {
 					num, _ := strconv.ParseInt(v.BlockNumber, 0, 64)
 					item.BlockNumber = num
 
-					item.From = "0x" + v.Topics[1][26:]
-					item.To = "0x" + v.Topics[2][26:]
+					item.From = strings.ToLower("0x" + v.Topics[1][26:])
+					item.To = strings.ToLower("0x" + v.Topics[2][26:])
 					item.TxHash = v.TxHash
 					item.UpdataTime = updateTime
 					value, _ := new(big.Int).SetString(v.Data, 0)
