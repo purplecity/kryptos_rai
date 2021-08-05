@@ -1,0 +1,12 @@
+use bsc;
+db.internal_tx.drop()
+db.createCollection("internal_tx")
+
+db.internal_tx.createIndex({"address":1})
+db.internal_tx.createIndex({"from":1})
+db.internal_tx.createIndex({"to":1})
+db.internal_tx.createIndex({"value":1})
+db.internal_tx.createIndex({"block_number":1})
+db.internal_tx.createIndex({"transaction_hash":1})
+db.internal_tx.createIndex({"update_time":1})
+

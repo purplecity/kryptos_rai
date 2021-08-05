@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+/*
+option go_package = "path;name";
+path 表示生成的go文件的存放地址，会自动生成目录的。
+name 表示生成的go文件所属的包名
+*/
+option go_package = "./;message_notify";
+package message_notify;
+
+service MessageNotify {
+    rpc FlashEventNotify(FEN_Request) returns(FEN_Reply) {}
+    rpc PoolNotify(PN_Request) returns(SuccessReply) {}
+}
+
+
+message PN_Request {
+    string pool_address = 1;
+    string last_check_block_height = 2;
+    string last_check_block_height_tvl = 3;
+    string cur_check_block_height = 4;
+    string cur_check_block_height_tvl = 5;
+    string master_chelf_addr = 6;
+}
+
+message SuccessReply {
+    bool success = 1; //true成功 false失败
+}
+
+message FEN_Request {
+    string pool_address = 1; //发生闪电贷的池子合约地址
+    string hash = 2; //闪电贷交易哈希
+}
+
+
+message FEN_Reply {
+    bool success = 1; //true成功 false失败
+}

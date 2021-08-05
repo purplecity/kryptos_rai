@@ -1,0 +1,22 @@
+PoolSize = 120
+BSCNodeURL = [
+    "https://bsc-dataseed1.binance.org/",
+    "https://bsc-dataseed2.binance.org/",
+    "https://bsc-dataseed3.binance.org/",
+    "https://bsc-dataseed4.binance.org/",
+    "https://bsc-dataseed1.defibit.io/",
+    "https://bsc-dataseed2.defibit.io/",
+    "https://bsc-dataseed3.defibit.io/",
+    "https://bsc-dataseed4.defibit.io/",
+    "https://bsc-dataseed1.ninicoin.io/",
+    "https://bsc-dataseed2.ninicoin.io/",
+    "https://bsc-dataseed3.ninicoin.io/",
+    "https://bsc-dataseed4.ninicoin.io/"
+]
+StartBlock = 9684149 #当前已经插入过的最新区块 不用加1
+CheckInterval = 4
+
+[Mongo]
+MongoHost = "mongodb://localhost:27017"
+Database = "bsc"
+Collection = "bsc"

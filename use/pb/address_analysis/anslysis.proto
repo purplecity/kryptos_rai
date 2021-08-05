@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+/*
+option go_package = "path;name";
+path 表示生成的go文件的存放地址，会自动生成目录的。
+name 表示生成的go文件所属的包名
+*/
+option go_package = "./;address_analysis";
+package address_analysis;
+
+
+service Analysis {
+    rpc HandleAnalysis(HA_Request) returns(HA_Reply) {}
+}
+
+message HA_Request {
+    repeated HA_Single_Request request_info = 1;
+    string chain = 2;
+}
+
+message HA_Single_Request {
+    string query_adddress = 1;
+    string pool_address = 2;
+    bool pool_has_certificate = 3;
+    string certificate_address = 4;
+    string certificate_token_name =5;
+    int32 certificate_precision = 6;
+    repeated InputToken input_token_list =7;
+    repeated RewardToken reward_token_list = 8;
+    string platform= 9;
+    string pool_type =10;
+    repeated MasterChelfToken master_chelf_list =11;
+}
+
+
+message MasterChelfToken {
+    string name =1;
+    string address =2;
+    int64 pid = 3;
+    int64 precision = 4;
+}
+message InputToken {
+    string name =1;
+    string address =2;
+    int32 precision = 3;
+}
+
+message RewardToken {
+    string name =1;
+    string address =2;
+    int32 precision = 3;
+}
+
+message HA_Reply {
+    repeated HA_Single_Reply reply_list = 1;
+}
+
+message HA_Single_Reply {
+    string pool_address = 1;// 池子地址
+    string master_chelf_address = 2; //用来读取master chelf的配置文件的symbol
+    repeated OutTokenInfo out_info = 3;
+}
+
+message OutTokenInfo {
+    string token_name = 1;
+    string token_amount =2;
+    string token_address = 3;
+    string token_type = 4;
+}
+

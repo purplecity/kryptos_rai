@@ -1,0 +1,14 @@
+
+
+
+
+use bsc;
+db.bsc.drop()
+db.createCollection("bsc")
+
+use bsc;
+db.bsc.createIndex({"hash":1})
+db.bsc.createIndex({"from":1})
+db.bsc.createIndex({"to":1})
+db.bsc.createIndex({"timestamp":1})
+db.bsc.createIndex({"update_time":1})

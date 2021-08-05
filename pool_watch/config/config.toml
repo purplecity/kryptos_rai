@@ -1,0 +1,20 @@
+SendNotify = true
+BSCNodeURL = [
+    "https://bsc-dataseed1.binance.org/",
+    "https://bsc-dataseed2.binance.org/",
+    "https://bsc-dataseed3.binance.org/",
+    "https://bsc-dataseed4.binance.org/",
+    "https://bsc-dataseed1.defibit.io/",
+    "https://bsc-dataseed2.defibit.io/",
+    "https://bsc-dataseed3.defibit.io/",
+    "https://bsc-dataseed4.defibit.io/",
+    "https://bsc-dataseed1.ninicoin.io/",
+    "https://bsc-dataseed2.ninicoin.io/",
+    "https://bsc-dataseed3.ninicoin.io/",
+    "https://bsc-dataseed4.ninicoin.io/"
+]
+HTTPPoolSize = 100
+RPCClientSize = 10
+RPCAddr = "127.0.0.1:16891"
+RPCConnTimeout = 10
+BSCCheckInterval = 300 #5分钟

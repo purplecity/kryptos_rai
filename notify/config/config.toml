@@ -1,0 +1,21 @@
+ListenAddr = "0.0.0.0:16891"
+TestEmailRecvAddrList = [
+    "551292446@qq.com",
+    "445694126@qq.com",
+    "xulongyunyin@qq.com"
+]
+
+# #stake cake earn mask
+# "0xAE611C6D4D3cA2CeE44cd34EB7aAc29D5A387fcf" = true
+# #BUSD-BNB farm stake busd-bnb lp earn cake
+# "0x73feaa1ee314f8c655e354234017be2193c9e24e" = true
+# #BUSD-BNB pair
+# "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16" = true
+[ChangeMap]
+"0x62dec3a560d2e8a84d30752ba454f97b26757877" = { project_name = "PancakeSwap", pool_name = "AMPL Earn Pool" }
+"0x73feaa1ee314f8c655e354234017be2193c9e24e" = { project_name = "PancakeSwap", pool_name = "MasterChelf Cake Pool" }
+
+[Mongo]
+SubMongoHost = "mongodb://localhost:27017"
+SubDatabase = "sub"
+SubCollection = "sub"

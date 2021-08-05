@@ -1,0 +1,75 @@
+use pool;
+db.pool_info.drop()
+db.createCollection("pool_info")
+
+
+db.pool_info.createIndex({"platform":1})
+db.pool_info.createIndex({"chain":1})
+db.pool_info.createIndex({"input_token_list":1})
+db.pool_info.createIndex({"certificate_token":1})
+db.pool_info.createIndex({"pool_address":1},{ unique: true })
+db.pool_info.createIndex({"fund_flow_list":1})
+db.pool_info.createIndex({"pool_property":1})
+db.pool_info.createIndex({"is_watching":1})
+db.pool_info.createIndex({"watch_describe":1})
+db.pool_info.createIndex({"update_time":1})
+db.pool_info.createIndex({"input_token_name_list":1})
+db.pool_info.createIndex({"reward_token_list":1})
+
+
+use logo;
+db.logo.drop()
+db.createCollection("logo")
+
+db.logo.createIndex({"name":1})
+db.logo.createIndex({"url":1})
+db.logo.createIndex({"type":1})
+db.logo.createIndex({"token_address":1})
+db.logo.createIndex({"chain":1})
+db.logo.createIndex({"update_time":1})
+db.logo.createIndex({"name":1,"type":1,"token_address":1,"chain":1},{ unique: true })
+
+
+
+
+
+use sub;
+db.sub.drop()
+db.createCollection("sub")
+
+db.sub.createIndex({"pool_address":1})
+db.sub.createIndex({"master_chelf_addr":1})
+db.sub.createIndex({"user_address":1})
+db.sub.createIndex({"update_time":1})
+db.sub.createIndex({"email":1})
+db.sub.createIndex({"watch_fl":1})
+db.sub.createIndex({"tvl_inc":1})
+db.sub.createIndex({"tvl_dec":1})
+db.sub.createIndex({"pool_address":1,"user_address":1,"master_chelf_addr":1},{ unique: true })
+
+
+
+
+use bsc;
+db.bsc.drop()
+db.createCollection("bsc")
+
+use bsc;
+db.bsc.createIndex({"hash":1})
+db.bsc.createIndex({"from":1})
+db.bsc.createIndex({"to":1})
+db.bsc.createIndex({"timestamp":1})
+db.bsc.createIndex({"update_time":1})
+
+use bsc;
+db.internal_tx.drop()
+db.createCollection("internal_tx")
+
+db.internal_tx.createIndex({"address":1})
+db.internal_tx.createIndex({"from":1})
+db.internal_tx.createIndex({"to":1})
+db.internal_tx.createIndex({"value":1})
+db.internal_tx.createIndex({"block_number":1})
+db.internal_tx.createIndex({"transaction_hash":1})
+db.internal_tx.createIndex({"update_time":1})
+

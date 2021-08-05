@@ -1,0 +1,4 @@
+
+对于项目的监控增加 比如增加venus watch文件夹下增加venus_watch.go  内容就是venus的逻辑处理
+
+如果增加对链的支持 那么配置文件要增加对应链检查间隔  以及对应链的getLatestBlock
