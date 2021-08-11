@@ -162,7 +162,7 @@ func GetMasterChelf() map[string]map[string]map[string]interface{} {
 			itemMap[address] = item
 
 		}
-		r[k] = itemMap
+		r[strings.ToLower(k)] = itemMap
 
 	}
 	return r

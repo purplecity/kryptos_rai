@@ -66,7 +66,7 @@ for (let index = 370; index < 441; index++) {
 
     let item = {Address:addressinfo.lpToken,PID:index}
 
-    if (!exceed(addressinfo.lpToken)) {
+    if (!exceed(addressinfo.lpToken) && addressinfo.allocPoint>0) {
         pidArray.push(item)
     }
 }

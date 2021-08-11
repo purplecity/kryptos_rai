@@ -120,7 +120,7 @@ func GetInternalTx() {
 				insertList := InTxRecordList{}
 				updateTime := time.Now().Unix()
 				for _, v := range retData.Result {
-					if len(v.Topics) < 3 {
+					if len(v.Topics) != 3 {
 						continue
 					}
 					item := InTxRecord{}

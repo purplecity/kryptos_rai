@@ -66,10 +66,12 @@ func checkLogoReq(req *LogoReq) error {
 		}
 	}
 
-	reg := regexp.MustCompile("^[A-Za-z]+$")
-	if !reg.MatchString(req.Name) {
-		logger.Error("checkLogoReq:name only a-zA-Z")
-		return errors.New(ErrorMap[InvalidArgument])
+	if req.Name != "" {
+		reg := regexp.MustCompile("^[A-Za-z]+$")
+		if !reg.MatchString(req.Name) {
+			logger.Error("checkLogoReq:name only a-zA-Z")
+			return errors.New(ErrorMap[InvalidArgument])
+		}
 	}
 
 	chainInfo := config.GetChainCheck()
