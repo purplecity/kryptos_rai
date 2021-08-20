@@ -63,8 +63,7 @@ func AutoFarmAnalysis(req *analysis.HA_Single_Request, mr *data.WrapReplyList) {
 				out1 := new(analysis.OutTokenInfo)
 				out1.TokenName = e.Name
 				out1.TokenAddress = e.Address
-				//cake固定18
-				out1.TokenAmount = GetTokenAmount(s1, 18)
+				out1.TokenAmount = GetTokenAmount(s1, req.RewardTokenList[0].Precision)
 				out1.TokenType = const_def.REWARD
 				tmpr.OutInfo = append(tmpr.OutInfo, out1)
 			}
