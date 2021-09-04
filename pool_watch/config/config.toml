@@ -18,3 +18,5 @@ RPCClientSize = 10
 RPCAddr = "127.0.0.1:16891"
 RPCConnTimeout = 10
 BSCCheckInterval = 300 #5分钟
+ETHNodeURL = ["https://mainnet.infura.io/v3/4db38258c9024f629a18768f9cf46ddd"]
+ETHCheckInterval = 300 #5分钟

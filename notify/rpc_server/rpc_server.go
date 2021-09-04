@@ -164,6 +164,11 @@ func (s *NotifyService) PoolNotify(ctx context.Context, in *message_notify.PN_Re
 	return r, nil
 }
 
+func (s *NotifyService) Curve3PoolNotify(ctx context.Context, in *message_notify.C3P_Request) (*message_notify.C3PReply, error) {
+
+	//do something
+}
+
 func InitRPCService() error {
 	logger.Notic("InitRPCService::start analysis rpc server")
 	addr := config.GetListenAddr()

@@ -6,3 +6,4 @@ type PoolInfo struct {
 }
 
 var BscPoolList []*PoolInfo
+var EthPoolList []*PoolInfo

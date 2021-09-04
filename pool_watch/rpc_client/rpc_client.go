@@ -55,3 +55,19 @@ func RPCPoolNotify(req *message_notify.PN_Request) error {
 	}
 	return nil
 }
+
+func RPCCurvePool3Notify(req *message_notify.C3P_Request) error {
+	client := rpcPool.Get().(message_notify.MessageNotifyClient)
+	defer rpcPool.Put(client)
+
+	r, err := client.Curve3PoolNotify(context.Background(), req)
+	if err != nil {
+		logger.Error("RPCCurvePool3Notify:: PoolNotify failed:%+v", err)
+		return err
+	}
+	if !r.Success {
+		logger.Error("RPCCurvePool3Notify:: PoolNotify not success:%+v", *req)
+		return errors.New("result failed")
+	}
+	return nil
+}

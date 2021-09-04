@@ -18,6 +18,8 @@ type Config struct {
 	RPCAddr          string
 	RPCConnTimeout   int64
 	BSCCheckInterval int64
+	ETHNodeURL       []string
+	ETHCheckInterval int64
 }
 
 var (
@@ -83,16 +85,16 @@ func GetRPCClientSize() int64 {
 	return config.RPCClientSize
 }
 
-func GetBSCNodeURL() []string {
-	configMutex.RLock()
-	defer configMutex.RUnlock()
-	return config.BSCNodeURL
-}
-
 func GetBSC() map[string]bool {
 	configMutex.RLock()
 	defer configMutex.RUnlock()
 	return config.BSC
+}
+
+func GetBSCNodeURL() []string {
+	configMutex.RLock()
+	defer configMutex.RUnlock()
+	return config.BSCNodeURL
 }
 
 func GetHTTPPoolSize() int64 {
@@ -117,4 +119,16 @@ func GetBSCCheckInterval() int64 {
 	configMutex.RLock()
 	defer configMutex.RUnlock()
 	return config.BSCCheckInterval
+}
+
+func GetETHNodeURL() []string {
+	configMutex.RLock()
+	defer configMutex.RUnlock()
+	return config.ETHNodeURL
+}
+
+func GetETHCheckInterval() int64 {
+	configMutex.RLock()
+	defer configMutex.RUnlock()
+	return config.ETHCheckInterval
 }

@@ -11,6 +11,9 @@ package message_notify;
 service MessageNotify {
     rpc FlashEventNotify(FEN_Request) returns(FEN_Reply) {}
     rpc PoolNotify(PN_Request) returns(SuccessReply) {}
+
+    //单独为了企业微信播报
+    rpc Curve3PoolNotify(c3p_Request) returns(c3p_reply) {}
 }
 
 
@@ -34,5 +37,21 @@ message FEN_Request {
 
 
 message FEN_Reply {
+    bool success = 1; //true成功 false失败
+}
+
+message c3p_Request {
+    string pool_address = 1;
+    string last_check_block_height = 2;
+    string last_check_block_height_tvl1 = 3;
+    string last_check_block_height_tvl2 = 4;
+    string last_check_block_height_tvl3 = 5;
+    string cur_check_block_height = 6;
+    string cur_check_block_height_tvl1 = 7;
+    string cur_check_block_height_tvl2 = 8;
+    string cur_check_block_height_tvl3 = 9;
+}
+
+message c3p_reply {
     bool success = 1; //true成功 false失败
 }

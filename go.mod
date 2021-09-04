@@ -6,6 +6,7 @@ require (
 	github.com/BurntSushi/toml v0.4.0
 	github.com/ethereum/go-ethereum v1.10.6
 	github.com/fsnotify/fsnotify v1.4.9
+	github.com/golang/protobuf v1.5.2
 	github.com/gorilla/mux v1.8.0
 	github.com/qiniu/qmgo v0.9.4
 	github.com/rs/cors v1.8.0

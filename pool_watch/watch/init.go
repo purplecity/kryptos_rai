@@ -12,6 +12,7 @@ var bscBlockHeight int64
 func Init() {
 	bscBlockHeight = 0
 	pool_info.BscPoolList = []*pool_info.PoolInfo{}
+	pool_info.EthPoolList = []*pool_info.PoolInfo{}
 	rpc_client.InitClient(int(config.GetRPCClientSize()))
 	pool.InitClient(int(config.GetHTTPPoolSize()))
 }
